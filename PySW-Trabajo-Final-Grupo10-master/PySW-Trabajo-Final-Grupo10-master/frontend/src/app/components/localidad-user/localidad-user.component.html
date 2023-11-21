@@ -1,0 +1,85 @@
+<!-- Localidades -->
+<section class="container background-container">
+  <!-- Imagen de fondo -->
+  <img src="/assets/fondo-login/login-formulario-gestor.jpg" alt="Fondo" class="background-image">
+
+  <!-- Capa del fondo -->
+  <div class="overlay"></div>
+
+  <!-- Titulo -->
+  <div class="text-center py-4">
+    <h1 class="titulo-principal" style="text-transform: uppercase;">{{nombre}}</h1>
+  </div>
+
+  <!-- Resenias Card -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let serv of servicios">
+      <div class="col">
+        <div class="card">
+          <h5 class="card-header fw-bold">{{serv.nombre}}</h5>
+
+          <div class="card-body">
+            <p class="card-text"><span class="fw-bold">Categoria:</span> {{serv.categoria}}</p>
+
+            <p class="card-text"><span class="fw-bold">Valoracion:</span> {{serv.calificacionTotal}} <i
+                class="bi bi-star-fill" style="color: yellow;"></i></p>
+
+            <div class="row">
+              <div class="col-12 mt-2 d-flex justify-content-end">
+                <button class="btn btn-danger text-white tamanio me-2" (click)="realizarReserva(serv._id)"><i
+                    class="bi bi-pencil-square"></i></button>
+
+                <button class="btn btn-success tamanio tamanio me-2" (click)="obtenerReseniaServ(serv)"><i
+                    class="bi bi-clipboard2-plus"></i></button>
+
+                <button class="btn btn-warning tamanio" (click)="cargar(serv)"><i class="bi bi-chat-text"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 
+<div class="container-fluid fondo">
+  <br><br>
+  <h1>{{nombre}}</h1>
+  <div *ngIf="servicios.length > 0">
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{servicio.nombre}}</h5>
+        <p class="card-text">Colocar algo sobre el servicio</p>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Categoría: {{servicio.categoria}}</li>
+          <li class="list-group-item">Calificación: {{servicio.calificacionTotal}}</li>
+        </ul>
+        <div class="card-body">
+          <button type="button" class="form-control btn-success"
+            (click)="realizarReserva(servicio._id)">Reservar</button>
+        </div>
+        <div class="container justify-content-start align-content-start text-start">
+          <button type="button" class="btn btn-success mt-2 mb-3 fw-bold" (click)="obtenerReseniaServ(servicio)">Reseñas
+            <i class="bi bi-clipboard2-plus"></i></button>
+        </div>
+        <div class="container justify-content-start align-content-start text-start">
+          <button type="button" class="btn btn-success mt-2 mb-3 fw-bold" (click)="cargar(servicio)">Comentar<i
+              class="bi bi-chat-text"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="contenedor">
+      <button class="botonContenedor" [ngStyle]="{ 'visibility': indice > 0 ? 'visible' : 'hidden' }"
+        (click)="anterior()" type="button"><i class="bi bi-caret-left-fill"></i> Anterior</button>
+      <button class="botonContenedor" [ngStyle]="{ 'visibility': indice < servicios.length - 1 ? 'visible' : 'hidden' }"
+        (click)="siguiente()" type="button">
+        Siguiente<i class="bi bi-caret-right-fill"></i></button>
+    </div>
+  </div>
+  <div *ngIf="servicios.length === 0">
+    <p>No hay servicios disponibles aún.</p>
+  </div>
+</div> -->

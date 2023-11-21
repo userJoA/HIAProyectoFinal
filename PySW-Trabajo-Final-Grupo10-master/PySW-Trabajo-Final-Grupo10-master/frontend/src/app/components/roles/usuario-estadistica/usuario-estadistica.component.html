@@ -1,0 +1,25 @@
+<div class="container" style="height: 100vh;">
+    <!-- Fondo -->
+    <img src="/assets/fondo-login/login-formulario-gestor.jpg" alt="Fondo" class="background-image">
+
+    <!-- Capa del fondo -->
+    <div class="overlay"></div>
+
+    <!-- Titulo -->
+    <div class="text-center py-4">
+        <h1 class="titulo-principal">MIS ESTADISTICAS</h1>
+    </div>
+
+    <div>
+        <div>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="provincia"
+                (ngModelChange)="obtenerDatos()">
+                <option *ngFor="let p of provincias" [value]="p">{{p}}</option>
+            </select>
+        </div>
+
+        <div>
+            <div class="p-2 m-auto mt-4 bg-white" style="width: 500px;"><canvas id="barra"></canvas></div>
+        </div>
+    </div>
+</div>

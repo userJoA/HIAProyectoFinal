@@ -1,0 +1,69 @@
+/**
+    FONDO FORMULARIO
+*/
+.background-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/**
+    CAPA DE FONDO
+*/
+.overlay {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/**
+    TITULO PRONCIPAL
+*/
+.titulo-principal {
+    text-align: center;
+    border: 2px solid #FFF;
+    border-radius: 8px;
+    padding: 10px;
+    color: #FFF;
+    background-color: transparent;
+    display: inline-block;
+    margin: 20px;
+}
+
+/**
+    TITULO CAMPOS
+  */
+.titulo {
+    text-align: center;
+    border: 2px solid #FFF;
+    color: #FFF;
+    background-color: #FF8C00;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 0;
+    margin: 0;
+}
+
+/**
+    FONDO DATOS
+*/
+.background-datos {
+    background-color: rgba(240, 240, 240, 0.5);
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 20px;
+}

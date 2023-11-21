@@ -1,0 +1,41 @@
+<!-- Resenias Usuario -->
+<section class="container">
+    <!-- Fondo -->
+    <img src="/assets/fondo-login/login-formulario-gestor.jpg" alt="Fondo" class="background-image">
+    <!-- Capa del fondo -->
+    <div class="overlay"></div>
+    <!-- Titulo -->
+    <div class="text-center py-4">
+        <h1 class="titulo-principal">RESENIAS SERVICIO</h1>
+    </div>
+
+    <!-- Resenias Card -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let resenia of resenias">
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header fw-bold">{{resenia.usuario.username}}</h5>
+
+                    <div class="card-body">
+                        <p class="card-text"><span class="fw-bold">Servicio:</span> {{resenia.servicio.nombre}}</p>
+
+                        <p class="card-text"><span class="fw-bold">Valoracion:</span> {{resenia.valoracion}} <i
+                                class="bi bi-star-fill" style="color: yellow;"></i></p>
+
+                        <p class="card-text"><span class="fw-bold">Fecha:</span> {{resenia.fechaAlta}}</p>
+
+                        <p class="card-text"><span class="fw-bold">Comentario:</span> {{resenia.comentario}}</p>
+
+                        <div class="row">
+                            <div class="col-12 mt-2 d-flex justify-content-end">
+                                <button class="btn btn-info text-white tamanio me-2"><i
+                                        class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-danger tamanio"><i class="bi bi-trash-fill"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

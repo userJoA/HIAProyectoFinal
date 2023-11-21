@@ -1,0 +1,63 @@
+<!-- Login -->
+<section class="container-fluid background-container">
+  <!-- Imagen de fondo -->
+  <img src="/assets/fondo-login/viajes.jpg" alt="Fondo" class="background-image">
+
+  <!-- Capa del fondo -->
+  <div class="overlay"></div>
+
+  <!-- Boton logearse -->
+  <div class="corner-button">
+    <a routerLink="/home" routerLinkActive="active" class="btn btn-outline-light">Home <i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- Contenedor Formulario -->
+  <div class="my-4 formulario-gestor">
+    <!-- Logo -->
+    <div class="text-center">
+      <img src="/assets/logo-turismoapp2.png" class="logo-login" alt="Turismo Applicacion">
+    </div>
+
+    <!-- Formulario -->
+    <form class="opacidad">
+      <fieldset class="form-group border rounded">
+        <!-- Header Form -->
+        <div class="bg-orange p-3 pb-1">
+          <h4 class="w-auto fw-bold text-center text-white">LOGIN</h4>
+        </div>
+        <hr class="mt-1" />
+
+        <!-- Body Form -->
+        <div class="p-3 pt-1">
+          <!-- Username -->
+          <div class="mb-4">
+            <input type="username" class="form-control bg-light" id="idUsernameGestor" name="username"
+              [(ngModel)]="log.username" placeholder="Nombre de Usario">
+          </div>
+
+          <!-- Password -->
+          <div class="mb-4">
+            <div class="password-input-container">
+              <input type="password" class="form-control bg-light" id="idPassword" name="password"
+                [(ngModel)]="log.password" placeholder="Contraseña">
+
+              <!-- Ver Password Icon -->
+              <span class="password-toggle" (click)="togglePasswordVisibility()">
+                <i class="bi " [ngClass]="{ 'bi-eye': showPassword, 'bi-eye-slash': !showPassword }"></i>
+              </span>
+            </div>
+          </div>
+
+          <p *ngIf="falloLogin" class="text-danger fw-bold">{{msgError}}</p>
+
+          <!-- Button Form -->
+          <div class="mb-4 d-grid">
+            <button type="submit" class="btn btn-warning text-white fw-bold mt-2" (click)="login()">Iniciar
+              sesión</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

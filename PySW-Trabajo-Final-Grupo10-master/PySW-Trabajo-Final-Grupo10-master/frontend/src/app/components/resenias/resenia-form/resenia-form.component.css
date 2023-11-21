@@ -1,0 +1,37 @@
+/**
+  BACKGROUND
+*/
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/**
+    TITULO PRONCIPAL
+*/
+.titulo-principal {
+    text-align: center;
+    border: 2px solid #FFF;
+    border-radius: 8px;
+    padding: 10px;
+    color: #FFF;
+    background-color: transparent;
+    display: inline-block;
+    margin: 20px;
+}

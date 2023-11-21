@@ -1,0 +1,92 @@
+<section class="container background-container">
+    <!-- Imagen de fondo -->
+    <img src="/assets/fondo-login/login-formulario-gestor.jpg" alt="Fondo" class="background-image">
+
+    <!-- Capa del fondo -->
+    <div class="overlay"></div>
+
+    <!-- Titulo -->
+    <div class="text-center py-4">
+        <h1 class="titulo-principal">PROVINCIAS</h1>
+    </div>   
+
+    <!-- Buscador -->
+    <div>
+        <div>
+            <select class="form-select" [(ngModel)]="seleccion" name="seleccionProvincia" id="seleccionProvincia"
+                (ngModelChange)="consultarProvincia(seleccion)">
+                <option *ngFor="let c of provincias" [value]="c.name">{{c.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Datos Provincia -->
+    <div class="row my-4">
+        <div class="col-12 col-lg-6">
+            <!-- Mapa -->
+            <div class="text-center">
+                <div class="col-md-12 mapa" id="map" style="width: 100%; height: 400px;margin: 0px;"></div>
+            </div>
+
+            <!-- Carousel -->
+            <div class="my-4">
+                <div *ngIf="mostrarCard" id="idCarouselLocalidades" class="carousel slide" data-bs-ride="carousel"
+                    data-bs-pause="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="3000">
+                            <img src="{{imagenes[0]}}" class="d-block w-100" alt="Imagen 1">
+                        </div>
+
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="{{imagenes[1]}}" class="d-block w-100" alt="Imagen 2">
+                        </div>
+
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="{{imagenes[2]}}" class="d-block w-100" alt="Imagen 3">
+                        </div>
+
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="{{imagenes[3]}}" class="d-block w-100" alt="Imagen 4">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#idCarouselLocalidades"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#idCarouselLocalidades"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Localidades -->
+        <div *ngIf="mostrarCard" class="col-12 col-lg-6 tabla-contenedor overflow-auto">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <thead class="table-warning">
+                        <tr>
+                            <th scope="col">Localidad</th>
+                            <th scope="col">Viajar</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let s of localidades">
+                            <td>{{s.nombre}}</td>
+                            <td>
+                                <button type="button" class="btn btn-success text-white"
+                                    (click)="seleccionarLocalidad(s)"><i class="bi bi-airplane"></i> Visitar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

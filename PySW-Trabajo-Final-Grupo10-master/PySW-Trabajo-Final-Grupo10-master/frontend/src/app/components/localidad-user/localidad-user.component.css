@@ -1,0 +1,113 @@
+/**
+    FONDO FORMULARIO
+*/
+.background-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/**
+CAPA DE FONDO
+*/
+.overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/**
+    TITULO PRONCIPAL
+*/
+.titulo-principal {
+  text-align: center;
+  border: 2px solid #FFF;
+  border-radius: 8px;
+  padding: 10px;
+  color: #FFF;
+  background-color: transparent;
+  display: inline-block;
+  margin: 20px;
+}
+
+/**
+    CARD
+*/
+.card-header {
+  background-color: #FF8C00;
+}
+
+/* .fondo{
+    background-image: url("/assets/fondo-servicio/fondo-localidad.jpg");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    margin-top: -24px;
+}
+.card {
+    background: linear-gradient(to right,  #664d03e0, #664d038f);
+    border: 1px solid #4e4e4e;
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
+    max-width: 100%;
+}
+h1{
+    font-size: auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.container-boton{
+    display: flex;
+  align-items: center;
+  margin-right: 0;
+}
+
+.botonImagen {
+    padding: 8px 10px;
+    margin-left: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .botonImagen i {
+    margin-right: 5px;
+  }
+  
+  .botonImagen:hover {
+    background-color: #0056b3;
+  }
+  
+  .botonImagen:active {
+    background-color: #003c80;
+  }
+  .contenedor {
+    width: 60%;
+    margin-left: 20%;
+}
+.botonContenedor {
+  width: 35%;
+  margin-left: 10%;
+  border-radius: 10px;
+  background: #c78501a8;
+  margin-top: 5px;
+} */
