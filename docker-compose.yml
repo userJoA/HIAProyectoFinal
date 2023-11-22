@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    networks:
+      - red-hia
+      
+  backend:
+    build:
+      context: ./backend
+    ports:
+       - "3000:3000"
+    depends_on:
+       - mongodb
+    links:
+       - mongodb
+    networks:
+       - red-hia
+
+  mongodb:
+     image: mongo
+     ports: 
+       - 27017:27017
+     environment:
+       - MONGO_INITDB_ROOT_USERNAME=root
+       - MONGO_INITDB_ROOT_PASSWORD=root
+     networks:
+       - red-hia
+
+networks:
+  red-hia:

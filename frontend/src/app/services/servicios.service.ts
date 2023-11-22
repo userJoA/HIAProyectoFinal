@@ -8,7 +8,7 @@ import { Servicio } from '../models/servicio';
 })
 export class ServiciosService {
 
-  urlBase: string = "http://localhost:3000/api/";
+  urlBase: string = "http://backend:3000/api/";
 
   constructor(private _http:HttpClient) { }
 
