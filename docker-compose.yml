@@ -6,30 +6,40 @@ services:
       context: ./frontend
     ports:
       - "80:80"
-    networks:
-      - red-hia
-      
+
   backend:
     build:
       context: ./backend
     ports:
-       - "3000:3000"
+      - "3000:3000"
     depends_on:
-       - mongodb
+      - mongodb
     links:
-       - mongodb
-    networks:
-       - red-hia
+      - mongodb
+
+# mongodb:
+#    image: mongo
+#    ports: 
+#      - 27017:27017
+#   #  environment:
+#   #    - MONGO_INITDB_ROOT_USERNAME=root
+#   #    - MONGO_INITDB_ROOT_PASSWORD=root
+#    networks:
+#      - red-hia
 
   mongodb:
-     image: mongo
-     ports: 
-       - 27017:27017
-    #  environment:
-    #    - MONGO_INITDB_ROOT_USERNAME=root
-    #    - MONGO_INITDB_ROOT_PASSWORD=root
-     networks:
-       - red-hia
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
 
-networks:
-  red-hia:
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_SERVER: 'mongodb'
+      ME_CONFIG_MONGODB_PORT: '27017'
+    links:
+      - mongodb
+    ports:
+      - "8081:8081"
