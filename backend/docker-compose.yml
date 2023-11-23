@@ -1,0 +1,20 @@
+services:
+ backend:
+  restart: always
+  build: .
+  ports:
+    - "3000:3000"
+  links:
+    - mongodb
+  networks:
+    - red-hia
+
+ mongodb:
+  image: mongo
+  ports:
+    - '27017:27017'
+  networks:
+    - red-hia
+
+networks:
+  red-hia:
