@@ -6,12 +6,16 @@ services:
       context: ./frontend
     ports:
       - "80:80"
+    networks:
+      - mongoCluster
 
   backend:
     build:
       context: ./backend
     ports:
       - "3000:3000"
+    networks:
+      - mongoCluster
     depends_on:
       - mongodb
     links:
@@ -20,18 +24,42 @@ services:
   mongodb:
     image: mongo
     container_name: mongodb
-    restart: unless-stopped
+    networks:
+      - mongoCluster
+    command: mongod --replSet myReplicaSet --bind_ip localhost,mongodb
     ports:
       - "27017:27017"
-
-  mongo-express:
-    image: mongo-express
-    container_name: mongo-express
-    restart: unless-stopped
-    environment:
-      ME_CONFIG_MONGODB_SERVER: 'mongodb'
-      ME_CONFIG_MONGODB_PORT: '27017'
-    links:
-      - mongodb
+  
+  mongodb1:
+    image: mongo
+    container_name: mongodb1
+    networks:
+      - mongoCluster
+    command: mongod --replSet myReplicaSet --bind_ip localhost,mongodb1
     ports:
-      - "8081:8081"
+      - "27018:27017"
+
+  mongodb2:
+    image: mongo
+    container_name: mongodb2
+    networks:
+      - mongoCluster
+    command: mongod --replSet myReplicaSet --bind_ip localhost,mongodb2
+    ports:
+      - "27019:27017"
+
+networks:
+  mongoCluster:
+    external: true
+
+  # mongo-express:
+  #   image: mongo-express
+  #   container_name: mongo-express
+  #   restart: always
+  #   environment:
+  #     ME_CONFIG_MONGODB_SERVER: 'mongodb'
+  #     ME_CONFIG_MONGODB_PORT: '27017'
+  #   links:
+  #     - mongodb
+  #   ports:
+  #     - "8081:8081"
